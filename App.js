@@ -5,9 +5,9 @@ import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
 import { Lato_900Black } from '@expo-google-fonts/lato';
 
+import DashboardScreen from './screens/DashboardScreen.js';
 import HomeScreen from './screens/HomeScreen.js';
 import SignInScreen from './screens/SignInScreen.js';
-import DashboardScreen from './screens/DashboardScreen.js';
 
 const Stack = createNativeStackNavigator();
 

@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "@expo-google-fonts/lato": "^0.2.0",
-    "@react-native-community/async-storage": "^1.12.1",
     "@react-navigation/native": "^6.0.0",
     "@react-navigation/native-stack": "^6.0.0",
     "axios": "^0.21.1",

@@ -3,6 +3,11 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
 	bg_image: {
 		width: 275,
+		height: 550
+	},
+
+	bg_image_container: {
+		width: 275,
 		height: 550,
 		backgroundColor: 'transparent',
 		position: 'absolute',
@@ -21,6 +26,7 @@ const styles = StyleSheet.create({
 		top: 100,
 		borderRadius: 20
 	},
+
 	body: {
 		flex: 0.6,
 		justifyContent: 'center',
@@ -43,15 +49,19 @@ const styles = StyleSheet.create({
 		marginBottom: 15
 	},
 
-	button_icon_wrapper: {
-		display: 'flex',
-		flexDirection: 'row',
-		position: 'relative'
+	button_pink: {
+		backgroundColor: '#f59ac3',
+		shadowColor: '#f59ac3'
 	},
 
-	button_icon: {
-		position: 'absolute',
-		top: 14
+	button_facebook: {
+		backgroundColor: '#4267b2',
+		shadowColor: '#4267b2'
+	},
+
+	button_twitter: {
+		backgroundColor: '#1da1f2',
+		shadowColor: '#1da1f2'
 	},
 
 	button_text: {
@@ -119,15 +129,36 @@ const styles = StyleSheet.create({
 		lineHeight: 34
 	},
 
+	icon: {
+		position: 'absolute',
+		top: 14
+	},
+
 	icon_back: {
 		position: 'absolute',
 		top: 60,
 		left: 20
 	},
 
-	password_wrapper: {
+	icon_facebook: {
+		right: 40
+	},
+
+	icon_twitter: {
+		right: 36
+	},
+
+	password_container: {
 		flexDirection: 'row',
 		position: 'relative'
+	},
+
+	social_signin: {
+		marginTop: 45
+	},
+
+	spinner: {
+		height: 425
 	},
 
 	text_input: {

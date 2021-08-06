@@ -58,7 +58,7 @@ const HomeScreen = ({ navigation }) => {
 		<View style={styles.container}>
 			{loading ? (
 				<View style={styles.container}>
-					<ActivityIndicator style={{ height: 425 }} />
+					<ActivityIndicator style={styles.spinner} />
 				</View>
 			) : (
 				<SafeAreaView style={styles.container}>
@@ -81,7 +81,7 @@ const HomeScreen = ({ navigation }) => {
 								loop={true}
 							/>
 						</View>
-						<TouchableOpacity style={[styles.button, { backgroundColor: '#f59ac3', shadowColor: '#f59ac3' }]} onPress={() => navigation.navigate('SignIn')}>
+						<TouchableOpacity style={[styles.button, styles.button_pink]} onPress={() => navigation.navigate('SignIn')}>
 							<Text style={styles.button_text}>Start Shopping</Text>
 						</TouchableOpacity>
 					</View>
