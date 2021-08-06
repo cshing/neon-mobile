@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AppLoading from 'expo-app-loading';
@@ -12,6 +12,8 @@ import DashboardScreen from './screens/DashboardScreen.js';
 const Stack = createNativeStackNavigator();
 
 const App = () => {
+	const [isSignedIn, setIsSignedIn] = useState(false);
+
 	let [fontsLoaded] = useFonts({
 		Lato_900Black,
 		'ApercuMonoPro-Bold': require('./assets/fonts/ApercuMonoPro-Bold.ttf')
@@ -23,10 +25,21 @@ const App = () => {
 
 	return (
 		<NavigationContainer>
-			<Stack.Navigator initialRouteName='Home'>
-				<Stack.Screen name='Home' component={HomeScreen} options={{ headerShown: false }} />
-				<Stack.Screen name='SignIn' component={SignInScreen} options={{ headerShown: false }} />
-				<Stack.Screen name='Dashboard' component={DashboardScreen} options={{ headerShown: false }} />
+			<Stack.Navigator>
+				{isSignedIn ? (
+					<>
+						<Stack.Screen name='Dashboard' options={{ headerShown: false }}>
+							{props => <DashboardScreen {...props} setIsSignedIn={setIsSignedIn} />}
+						</Stack.Screen>
+					</>
+				) : (
+					<>
+						<Stack.Screen name='Home' component={HomeScreen} options={{ headerShown: false }} />
+						<Stack.Screen name='SignIn' options={{ headerShown: false }}>
+							{props => <SignInScreen {...props} setIsSignedIn={setIsSignedIn} />}
+						</Stack.Screen>
+					</>
+				)}
 			</Stack.Navigator>
 		</NavigationContainer>
 	);

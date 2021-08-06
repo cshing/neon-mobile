@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { ActivityIndicator, Dimensions, Image, SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import axios from 'axios';
-import styles from '../Common.style.js';
+import styles from './Common.style.js';
 
 const HomeScreen = ({ navigation }) => {
 	// set up initial state for products
@@ -46,7 +46,7 @@ const HomeScreen = ({ navigation }) => {
 	const [activeIndex, setActiveIndex] = useState(0);
 	const ref = useRef(null);
 
-	const renderItem = ({ item, index }) => {
+	const renderItem = ({ item }) => {
 		return (
 			<View style={styles.carousel_renderItem}>
 				<Image style={styles.carousel_renderItem_image} resizeMode='cover' source={{ uri: item.image }} />
@@ -75,6 +75,10 @@ const HomeScreen = ({ navigation }) => {
 								itemWidth={(windowWidth / 5) * 3.5}
 								renderItem={renderItem}
 								onSnapToItem={index => setActiveIndex(index)}
+								autoplay={true}
+								autoplayDelay={500}
+								autoplayInterval={3000}
+								loop={true}
 							/>
 						</View>
 						<TouchableOpacity style={[styles.button, { backgroundColor: '#f59ac3', shadowColor: '#f59ac3' }]} onPress={() => navigation.navigate('SignIn')}>

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Button, Text, View } from 'react-native';
-import styles from '../Common.style';
+import styles from './Common.style';
 
-const DashboardScreen = ({ navigation }) => {
+const DashboardScreen = ({ setIsSignedIn }) => {
 	return (
 		<View style={styles.container}>
-			<Text>Signed in!</Text>
-			<Button title='Sign out' onPress={() => navigation.navigate('Home')} />
+			<Text>Hi, you are signed in!</Text>
+			<Button title='Sign out' onPress={() => setIsSignedIn(false)} />
 		</View>
 	);
 };

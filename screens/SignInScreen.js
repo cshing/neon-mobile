@@ -1,11 +1,24 @@
 import React, { useState } from 'react';
 import { Alert, Dimensions, Image, SafeAreaView, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { AntDesign, FontAwesome } from '@expo/vector-icons';
-import styles from '../Common.style.js';
+import styles from './Common.style.js';
 
-const SignInScreen = ({ navigation }) => {
+const SignInScreen = ({ navigation, setIsSignedIn }) => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+
+	const user1 = {
+		email: 'user1@example.com',
+		password: '123456'
+	};
+
+	const validateUser = () => {
+		if (email === user1.email && password === user1.password) {
+			setIsSignedIn(true);
+		} else {
+			Alert.alert('Invalid email or password.');
+		}
+	};
 
 	return (
 		<SafeAreaView style={styles.container}>
@@ -48,7 +61,7 @@ const SignInScreen = ({ navigation }) => {
 			</TouchableOpacity>
 
 			<View style={{ marginBottom: 45 }}>
-				<TouchableOpacity style={[styles.button, { backgroundColor: '#f59ac3', shadowColor: '#f59ac3' }]} onPress={() => navigation.navigate('Dashboard')}>
+				<TouchableOpacity style={[styles.button, { backgroundColor: '#f59ac3', shadowColor: '#f59ac3' }]} onPress={validateUser}>
 					<Text style={styles.button_text}>Sign In</Text>
 				</TouchableOpacity>
 			</View>
